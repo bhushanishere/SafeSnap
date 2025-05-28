@@ -19,6 +19,7 @@ struct SafeSnapApp: App {
                     WelcomeView()
                 } else {
                     SplashScreen(isActive: $showSplash)
+//                    LoginView()
                 }
             }
         }

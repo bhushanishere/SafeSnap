@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    let featureImages = ["appstore", "appstore", "appstore"]
+    let featureImages = ["slid1", "slid2", "slid3", "slid4"]
     @State private var currentIndex = 0
     @State private var isAnimating = false
     @State private var navigateToLogin = false
@@ -34,11 +34,11 @@ struct WelcomeView: View {
                                     .animation(.easeInOut(duration: 0.3), value: currentIndex)
                                     .tag(index)
                                 
-                                Text("Welcome to SafeSnap \(index + 1)")
+                              /*  Text("Welcome to SafeSnap \(index + 1)")
                                     .padding()
                                     .font(.title)
                                     .foregroundColor(.teal)
-                                    .multilineTextAlignment(.center)
+                                    .multilineTextAlignment(.center)*/
                             }
                         }
                     }
@@ -50,7 +50,7 @@ struct WelcomeView: View {
                         ForEach(0..<featureImages.count, id: \.self) { index in
                             Circle()
                                 .fill(currentIndex == index ? Color.teal : Color.black.opacity(0.4))
-                                .frame(width: 10, height: 10)
+                                .frame(width: 8, height: 8)
                                 .scaleEffect(currentIndex == index ? 1.3 : 1.0)
                                 .animation(.easeInOut(duration: 0.2), value: currentIndex)
                         }

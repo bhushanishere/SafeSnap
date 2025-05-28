@@ -35,19 +35,19 @@ struct SignUpView: View {
                 Spacer()
                 VStack(spacing: 20) {
                     TextField("First Name", text: $firstName)
-                        .customTextFieldStyle()
+                        .appTextFieldStyle()
                     
                     TextField("Last Name", text: $lastName)
-                        .customTextFieldStyle()
+                        .appTextFieldStyle()
                     
                     TextField("Phone Number", text: $phoneNumber)
-                        .customTextFieldStyle()
+                        .appTextFieldStyle()
                     
                     TextField("Email", text: $email)
-                        .customTextFieldStyle()
+                        .appTextFieldStyle()
                     
                     SecureField("Password", text: $password)
-                        .customSecureFielddStyle()
+                        .appSecureFielddStyle()
 
                     
                     Spacer()
@@ -55,16 +55,16 @@ struct SignUpView: View {
                         // Handle sign up action
                     }) {
                         Text("Sign Up")
-                            .customTextStyle()
+                            .appTextStyle()
                     }
-                    .customButtonStyle()
+                    .appButtonStyle()
                 }
                 .padding(.top, 30)
             }
             .padding(35)
         }
         .ignoresSafeArea()
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
     }
 }
 

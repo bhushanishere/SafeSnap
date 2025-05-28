@@ -33,7 +33,6 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                     
                     Text("Please login to your account.")
-                        .padding(.top, 5)
                         .foregroundColor(.teal.opacity(0.8))
                         .fontWeight(.semibold)
                         .frame(maxWidth: .infinity, alignment: .center)
@@ -41,23 +40,23 @@ struct LoginView: View {
                     Image("people")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 250, height: 250)
+                        .frame(width: 220, height: 220)
                         .foregroundStyle(.white)
                         .shadow(color: .pink.opacity(0.5), radius: 10, x: 0, y: 5)
                                         
-                    VStack(spacing: 20) {
+                    VStack(spacing: 15) {
                         TextField("Username", text: $userName)
-                            .customTextFieldStyle(imageName: "person.fill")
+                            .appTextFieldStyle(imageName: "person.fill")
                         
                         SecureField("Password", text: $password)
-                            .customSecureFielddStyle(imageName: "lock.fill")
+                            .appSecureFielddStyle(imageName: "lock.fill")
                         
                         HStack {
                             Spacer()
                             Text("Forgot Password?")
                                 .padding(.horizontal, 10)
-                                .foregroundColor(.appPrimary)
-                                .fontWeight(.semibold)
+                                .foregroundColor(.teal)
+                                .fontWeight(.medium)
                                 .onTapGesture {
                                     // Handle forgot password action
                                 }
@@ -65,26 +64,23 @@ struct LoginView: View {
                         
                         Button(action: {
                             // Handle login action
-                            navigateToSignUp = true
+                           
                         }) {
                             Text("Login")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundColor(.appTheme)
-                                .frame(maxWidth: .infinity, maxHeight: 50)
+                                .appButtonTextStyle()
                         }
-                        .buttonStyle(.bordered)
-                        .background(.thinMaterial, in: .rect(cornerRadius: 10))
+                        .appButtonStyle()
                     }
                     
                     Spacer()
                     
                     Text("Don't have an account?  Sign Up!")
                         .padding(.bottom, 5)
-                        .foregroundColor(.appPrimary)
-                        .fontWeight(.semibold)
+                        .foregroundColor(.teal)
+                        .fontWeight(.medium)
                         .onTapGesture {
                             // Handle sign up action
+                            navigateToSignUp = true
                         }
                 }
                 .padding(35)
