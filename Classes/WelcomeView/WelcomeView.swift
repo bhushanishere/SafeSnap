@@ -13,12 +13,9 @@ struct WelcomeView: View {
     @State private var isAnimating = false
     @State private var navigateToLogin = false
     var body: some View {
-        // Want to navigate to login screen on tap.
         NavigationStack {
-            ZStack {
-//                Color.appPrimary.ignoresSafeArea()
-                LinearGradient(gradient: Gradient(colors: [.white, .appTheme, .white]), startPoint: .top, endPoint: .bottom)
-
+            ZStack(alignment: .top) {
+                
                 VStack {
                     Spacer()
                     
@@ -31,6 +28,7 @@ struct WelcomeView: View {
                                     .frame(width: 350, height: 350)
                                     .cornerRadius(20)
                                     .shadow(radius: 5)
+                                    .foregroundStyle(.teal)
                                     .scaleEffect(currentIndex == index ? 1.0 : 0.85)
                                     .opacity(currentIndex == index ? 1.0 : 0.5)
                                     .animation(.easeInOut(duration: 0.3), value: currentIndex)
@@ -39,7 +37,7 @@ struct WelcomeView: View {
                                 Text("Welcome to SafeSnap \(index + 1)")
                                     .padding()
                                     .font(.title)
-                                    .foregroundColor(.white)                              
+                                    .foregroundColor(.teal)
                                     .multilineTextAlignment(.center)
                             }
                         }
@@ -51,7 +49,7 @@ struct WelcomeView: View {
                     HStack(spacing: 10) {
                         ForEach(0..<featureImages.count, id: \.self) { index in
                             Circle()
-                                .fill(currentIndex == index ? Color.appTheme : Color.black.opacity(0.4))
+                                .fill(currentIndex == index ? Color.teal : Color.black.opacity(0.4))
                                 .frame(width: 10, height: 10)
                                 .scaleEffect(currentIndex == index ? 1.3 : 1.0)
                                 .animation(.easeInOut(duration: 0.2), value: currentIndex)
@@ -77,7 +75,7 @@ struct WelcomeView: View {
                             }
                         
                         Circle()
-                            .fill(Color.appTheme)
+                            .fill(Color.teal)
                             .frame(width: 80, height: 80)
                             .overlay(
                                 Image(systemName: "arrow.right")
@@ -94,6 +92,7 @@ struct WelcomeView: View {
                     .animation(.spring(), value: currentIndex)
                 }
             }
+            .background(Color.appPrimary)
             .edgesIgnoringSafeArea(.all)
             .navigationDestination(isPresented: $navigateToLogin) {
                 LoginView()

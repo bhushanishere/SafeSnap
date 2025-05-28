@@ -14,37 +14,43 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color.appPrimary.ignoresSafeArea()
-                LinearGradient.appGreenGradient
+            ZStack(alignment: .top) {
+                BackgroundWave2()
+                    .fill(Color.teal.opacity(0.2))
+                    .frame(height: 200)
+                BackgroundWave1()
+                    .fill(Color.teal)
+                    .frame(height: 180)
+//                Color.appPrimary.ignoresSafeArea()
+//                LinearGradient.appGreenGradient
+                Spacer()
                 VStack {
-                    Text("Sign In")
-                        .padding(.top, 60)
+                    Text("Welcome Back!")
+                        .padding(.top, 120)
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                        .foregroundColor(.appPrimary)
+                        .foregroundColor(.teal.opacity(0.7))
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                    Text("Welcome back! Please login to your account.")
+                    Text("Please login to your account.")
                         .padding(.top, 5)
-                        .foregroundColor(.appPrimary)
-                        .fontWeight(.light)
+                        .foregroundColor(.teal.opacity(0.8))
+                        .fontWeight(.semibold)
                         .frame(maxWidth: .infinity, alignment: .center)
                     
-                    Spacer()
-                    
+                    Image("people")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 250, height: 250)
+                        .foregroundStyle(.white)
+                        .shadow(color: .pink.opacity(0.5), radius: 10, x: 0, y: 5)
+                                        
                     VStack(spacing: 20) {
                         TextField("Username", text: $userName)
-                            .safeAreaInset(edge: .leading) { Image(systemName: "person.fill").foregroundStyle(.white) }
-                            .padding(.all)
-                            .foregroundStyle(.white)
-                            .background(.ultraThinMaterial, in: .rect(cornerRadius: 10))
+                            .customTextFieldStyle(imageName: "person.fill")
                         
                         SecureField("Password", text: $password)
-                            .safeAreaInset(edge: .leading) { Image(systemName: "lock.fill")  .foregroundStyle(.white) }
-                            .padding(.all)
-                            .foregroundStyle(.white)
-                            .background(.ultraThinMaterial, in: .rect(cornerRadius: 10))
+                            .customSecureFielddStyle(imageName: "lock.fill")
                         
                         HStack {
                             Spacer()

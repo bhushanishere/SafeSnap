@@ -13,22 +13,26 @@ struct SplashScreen: View {
     @Binding var isActive: Bool
     
     var body: some View {
-        ZStack{
-            LinearGradient(gradient: Gradient(colors: [.white, .appTheme, .white]), startPoint: .top, endPoint: .bottom)
+        ZStack {
             VStack {
-                VStack {
-                    Image("appstore")
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .foregroundStyle(.white)
-                    
-                }.scaleEffect(scale)
-                    .onAppear{
-                        withAnimation(.easeIn(duration: 0.7)) {
-                            self.scale = 0.9
-                        }
+                Rectangle()
+                    .fill(Color.appPrimary)
+            }
+            
+            VStack {
+                Spacer()
+                Circle()
+                    .fill(Color.appTheme.opacity(0.2))
+                    .frame(width: 700, height: 700)
+                    .overlay {
+                        Image("flyingBird")
+                            .resizable()
+                            .frame(width: 300, height: 300)
+                            .foregroundStyle(.white)
+                            .shadow(color: .pink.opacity(0.7), radius: 10, x: 0, y: 5)
                     }
-            }.onAppear {
+            }
+            .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     withAnimation {
                         self.isActive = true

@@ -25,18 +25,19 @@ extension LinearGradient {
 }
 
 extension TextField {
-    // How to create property extenstion.
-    func customTextFieldStyle() -> some View {
-        self.padding(.all)
-            .foregroundStyle(.white)
-            .background(.ultraThinMaterial, in: .rect(cornerRadius: 10))
+    func customTextFieldStyle(imageName: String? = "") -> some View {
+        self.safeAreaInset(edge: .leading) { Image(systemName: imageName ?? "").foregroundStyle(.teal) }
+            .padding(.all)
+            .foregroundStyle(.gray)
+            .background(.thickMaterial, in: .rect(cornerRadius: 10))
     }
 }
 
 extension SecureField {
-    func customSecureFielddStyle() -> some View {
-        self.padding(.all)
-            .foregroundStyle(.white)
+    func customSecureFielddStyle(imageName: String? = "") -> some View {
+        self.safeAreaInset(edge: .leading) { Image(systemName: imageName ?? "").foregroundStyle(.teal) }
+            .padding(.all)
+            .foregroundStyle(.gray)
             .background(.ultraThinMaterial, in: .rect(cornerRadius: 10))
     }
 }
