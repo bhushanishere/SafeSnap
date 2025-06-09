@@ -15,10 +15,8 @@ struct WelcomeView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                
                 VStack {
                     Spacer()
-                    
                     TabView(selection: $currentIndex) {
                         ForEach(0..<featureImages.count, id: \.self) { index in
                             VStack {
@@ -29,10 +27,12 @@ struct WelcomeView: View {
                                     .cornerRadius(20)
                                     .shadow(radius: 5)
                                     .foregroundStyle(.teal)
+                                    .shadow(color: .pink.opacity(0.5), radius: 10, x: 0, y: 5)
                                     .scaleEffect(currentIndex == index ? 1.0 : 0.85)
                                     .opacity(currentIndex == index ? 1.0 : 0.5)
                                     .animation(.easeInOut(duration: 0.3), value: currentIndex)
                                     .tag(index)
+                                
                                 
                               /*  Text("Welcome to SafeSnap \(index + 1)")
                                     .padding()
