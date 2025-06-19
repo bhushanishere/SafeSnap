@@ -11,18 +11,12 @@ struct LoginView: View {
     @State private var userName = ""
     @State private var password = ""
     @State private var navigateToSignUp = false
+    @State private var navigateToForgotPassword = false
     
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                BackgroundWave2()
-                    .fill(Color.teal.opacity(0.2))
-                    .frame(height: 200)
-                BackgroundWave1()
-                    .fill(Color.teal)
-                    .frame(height: 180)
-//                Color.appPrimary.ignoresSafeArea()
-//                LinearGradient.appGreenGradient
+                TopWaveView()
                 Spacer()
                 VStack {
                     Text("Welcome Back!")
@@ -54,11 +48,12 @@ struct LoginView: View {
                         HStack {
                             Spacer()
                             Text("Forgot Password?")
-                                .padding(.horizontal, 10)
+                                .padding(.top, 5)
                                 .foregroundColor(.teal)
-                                .fontWeight(.medium)
+                                .fontWeight(.thin)
+                                .font(.system(size: 15))
                                 .onTapGesture {
-                                    // Handle forgot password action
+                                    navigateToForgotPassword = true
                                 }
                         }
                         
@@ -73,7 +68,6 @@ struct LoginView: View {
                     }
                     
                     Spacer()
-                    
                     Text("Don't have an account?  Sign Up!")
                         .padding(.bottom, 5)
                         .foregroundColor(.teal)
@@ -91,6 +85,10 @@ struct LoginView: View {
         .navigationDestination(isPresented: $navigateToSignUp) {
             // Navigate to Sign Up view
             SignUpView()
+        }
+        .navigationDestination(isPresented: $navigateToForgotPassword) {
+            // Navigate to Forgot Password view
+            ForgotPasswordView()
         }
     }
 }

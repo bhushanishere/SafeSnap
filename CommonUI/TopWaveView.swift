@@ -1,12 +1,9 @@
 //
-//  WaveView.swift
+//  TopWaveView.swift
 //  SafeSnap
 //
-//  Created by Bhushan Borse DXC on 27/05/25.
+//  Created by Bhushan Borse DXC on 19/06/25.
 //
-
-import SwiftUI
-
 
 import SwiftUI
 
@@ -46,8 +43,7 @@ struct BackgroundWave2: Shape {
     }
 }
 
-
-struct WaveView: View {
+struct TopWaveView: View {
     var body: some View {
         ZStack(alignment: .top) {
             BackgroundWave2()
@@ -58,9 +54,11 @@ struct WaveView: View {
                 .fill(Color.teal)
                 .frame(height: 180)
         }
+        .ignoresSafeArea()
+
     }
 }
 
 #Preview {
-    WaveView()
+    TopWaveView()
 }
