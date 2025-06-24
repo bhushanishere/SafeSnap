@@ -2,7 +2,7 @@
 //  TopWaveView.swift
 //  SafeSnap
 //
-//  Created by Bhushan Borse DXC on 19/06/25.
+//  Created by Bhushan Borse on 19/06/25.
 //
 
 import SwiftUI
@@ -55,7 +55,6 @@ struct TopWaveView: View {
                 .frame(height: 180)
         }
         .ignoresSafeArea()
-
     }
 }
 

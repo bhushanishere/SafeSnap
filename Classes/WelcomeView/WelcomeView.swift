@@ -32,13 +32,6 @@ struct WelcomeView: View {
                                     .opacity(currentIndex == index ? 1.0 : 0.5)
                                     .animation(.easeInOut(duration: 0.3), value: currentIndex)
                                     .tag(index)
-                                
-                                
-                              /*  Text("Welcome to SafeSnap \(index + 1)")
-                                    .padding()
-                                    .font(.title)
-                                    .foregroundColor(.teal)
-                                    .multilineTextAlignment(.center)*/
                             }
                         }
                     }

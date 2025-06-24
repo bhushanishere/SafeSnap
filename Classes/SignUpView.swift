@@ -17,54 +17,55 @@ struct SignUpView: View {
     @State private var confirmPassword: String = ""
     
     var body: some View {
-        ZStack {
-            LinearGradient.appGreenGradient
-            VStack {
-                Text("Sign Up")
-                    .padding(.top, 80)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.appPrimary)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                Text("Create a new account")
-                    .padding(.top, 10)
-                    .font(.title3)
-                    .foregroundColor(.white)
-                    .fontWeight(.light)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                Spacer()
-                VStack(spacing: 20) {
-                    TextField("First Name", text: $firstName)
-                        .appTextFieldStyle()
-                    
-                    TextField("Last Name", text: $lastName)
-                        .appTextFieldStyle()
-                    
-                    TextField("Phone Number", text: $phoneNumber)
-                        .appTextFieldStyle()
-                    
-                    TextField("Email", text: $email)
-                        .appTextFieldStyle()
-                    
-                    SecureField("Password", text: $password)
-                        .appSecureFielddStyle()
-
-                    
-                    Spacer()
-                    Button(action: {
-                        // Handle sign up action
-                    }) {
+        NavigationStack {
+            ZStack(alignment: .top) {
+                VStack {
+                    TopWaveView()
+                    VStack {
                         Text("Sign Up")
-                            .appTextStyle()
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.teal.opacity(0.7))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        Text("Create a new account")
+                            .padding()
+                            .font(.title3)
+                            .foregroundColor(.teal.opacity(0.7))
+                            .fontWeight(.light)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        VStack(spacing: 20) {
+                            TextField("First Name", text: $firstName)
+                                .appTextFieldStyle()
+                            
+                            TextField("Last Name", text: $lastName)
+                                .appTextFieldStyle()
+                            
+                            TextField("Phone Number", text: $phoneNumber)
+                                .appTextFieldStyle()
+                            
+                            TextField("Email", text: $email)
+                                .appTextFieldStyle()
+                            
+                            SecureField("Password", text: $password)
+                                .appSecureFielddStyle()
+                            Spacer()
+                            Button(action: {
+                                // Handle sign up action
+                            }) {
+                                Text("Sign Up")
+                                    .appTextStyle()
+                            }
+                            .appButtonStyle()
+                            Spacer()
+                        }
+                        .padding(.horizontal, 20)
                     }
-                    .appButtonStyle()
+                    .padding()
                 }
-                .padding(.top, 30)
             }
-            .padding(35)
+            .edgesIgnoringSafeArea(.all)
+//            .navigationBarBackButtonHidden(true)
         }
-        .ignoresSafeArea()
-        .navigationBarBackButtonHidden(false)
     }
 }
 
